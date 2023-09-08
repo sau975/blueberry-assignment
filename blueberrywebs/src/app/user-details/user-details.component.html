@@ -1,0 +1,10 @@
+<button class="btn btn-secondary btn-sm mt-3" type="button" (click)="logOut()">Logout</button> <br/> <br/>
+
+<h3>User Detail</h3> <br/>
+
+<div *ngIf="userDetails" style="border: solid 1px; padding: 9px;">
+    <label>Id : {{userDetails.id}}</label> <br/>
+    <label>Name : {{userDetails.name}}</label> <br/>
+    <label>Email : {{userDetails.email}}</label> <br/>
+    <label>Address : {{userDetails.address}}</label> <br/>
+</div>
