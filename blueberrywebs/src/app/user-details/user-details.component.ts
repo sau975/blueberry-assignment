@@ -18,7 +18,9 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(res => {
-      this.userDetails = res.data[1];
+      if(res.status == true){
+        this.userDetails = res.data[1];
+      }
     })
   }
 

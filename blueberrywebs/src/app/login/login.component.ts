@@ -35,7 +35,7 @@ export class LoginComponent {
   submit(){
     let data:Login = Object.assign({}, this.form.value);
     this.userService.Login(data).subscribe(res => {
-      if(res){
+      if(res.status == true){
         this.router.navigate(['user-details']);
         localStorage.setItem('token', res.token);  
       }
