@@ -10,16 +10,17 @@ import { Router } from '@angular/router';
 export class UserDetailsComponent implements OnInit {
 
   userDetails: any;
+  loggedInEmail: string;
 
   constructor(
     private userService: UserService,
     private router: Router
-  ){}
+  ){this.loggedInEmail = localStorage.getItem('loggedInEmail')}
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(res => {
       if(res.status == true){
-        this.userDetails = res.data[1];
+        this.userDetails = res.data.find(u => u.email == this.loggedInEmail);
       }
     })
   }
