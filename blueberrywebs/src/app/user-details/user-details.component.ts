@@ -29,7 +29,7 @@ export class UserDetailsComponent implements OnInit {
     this.userService.Logout().subscribe(res => {
       if(res){
         this.router.navigate(['login']);
-        localStorage.removeItem('token');  
+        localStorage.clear();  
       }
     })
   }
