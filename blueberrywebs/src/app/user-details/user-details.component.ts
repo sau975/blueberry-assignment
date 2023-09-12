@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class UserDetailsComponent implements OnInit {
 
   userDetails: any;
-  loggedInEmail: string;
+  loggedInEmail: any;
 
   constructor(
     private userService: UserService,
@@ -20,7 +20,7 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsers().subscribe(res => {
       if(res.status == true){
-        this.userDetails = res.data.find(u => u.email == this.loggedInEmail);
+        this.userDetails = res.data.find((u:any) => u.email == this.loggedInEmail);
       }
     })
   }
